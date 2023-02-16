@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Content from "./Components/Content";
+import Filter from "./Components/Filter";
+import Navbar from "./Components/Navbar";
+import Modal from "./Components/UI/Modal";
 
 function App() {
+  const [cartOpen, setCartOpen] = useState(false);
+  const cartClicked = () => {
+    //change cart modal state to open
+    setCartOpen((cartOpen) => {
+      return !cartOpen;
+    });
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {cartOpen && <Modal cartClicked={cartClicked} />}
+      <div className="mainGrid">
+        <Navbar cartClicked={cartClicked} />
+        <Filter />
+        <Content />
+      </div>
     </div>
   );
 }

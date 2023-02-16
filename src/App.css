@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
+.mainGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  color: rgb(49, 49, 49);
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  background-color: rgb(211, 211, 211);
+  border-radius: 20px;
+  padding: 20px;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: auto 0;
+  justify-content: space-between;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content {
+  height: 100px;
+  grid-column-start: 2;
+  grid-column-end: -1;
+  background-color: rgb(211, 211, 211);
+  border-radius: 20px;
+  padding: 20px;
+  height: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.filter {
+  height: 200px;
+  background-color: rgb(211, 211, 211);
+  border-radius: 20px;
+  grid-column-start: 1;
+  padding: 20px;
+  grid-column-end: 2;
+  height: auto;
+  position: relative;
+}
+
+.filterContainer {
+  position: sticky;
+  display: flex;
+  top: 10px;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-evenly;
+}
+
+.item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px 0;
+  gap: 2px;
+  font-size: 12px;
+}
+.item img {
+  height: 150px;
+}
+
+.item button {
+  margin-top: 3px;
+  font-size: 10px;
+  padding: 2px;
+  color: grey;
+  background-color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cartIcon {
+  display: flex;
+  background-color: aliceblue;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 10px;
+}
+.cartIcon:hover {
+  background-color: white;
+  color: rgb(49, 49, 49);
+  cursor: pointer;
+}
+.modalOverlay {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.modal {
+  min-width: 600px;
+  background-color: rgb(187, 182, 182);
+  padding: 20px;
+}
+
+.overflowClass {
+  overflow-y: scroll;
+  max-height: 50vh;
+}
+
+.cartDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* overflow-y: scroll; */
+  max-height: 500px;
+}
+
+.closeButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+  right: 0px;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+  transform: scale(1.5, 1.5);
+}
+
+.cartItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.cartItem span {
+  justify-self: center;
+}
+.cartOptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexOrder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 10px;
+}
+.flexOrder button {
+  grid-column-start: 3;
+  justify-self: center;
+  padding: 4px;
+  outline: none;
+  border: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.555);
+}
+.flexOrder button:hover {
+  cursor: pointer;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: rgb(49, 49, 49);
 }
