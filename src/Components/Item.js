@@ -23,7 +23,7 @@ const Item = ({ product }) => {
       <span>Rating: {product.rating}</span>
       <span>Quick Delivery: {product.fastDelivery ? "Yes" : "No"}</span>
 
-      {added ? (
+      {/* {added ? (
         <button
           onClick={() => {
             setAdded((added) => !added);
@@ -33,7 +33,7 @@ const Item = ({ product }) => {
         >
           Remove from Cart
         </button>
-      ) : (
+      ) : ( */}
         <button
           onClick={() => {
             setAdded((added) => !added);
@@ -43,7 +43,7 @@ const Item = ({ product }) => {
         >
           Add to Cart
         </button>
-      )}
+      {/* )} */}
     </div>
   );
 };

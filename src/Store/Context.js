@@ -18,7 +18,7 @@ const Context = ({ children }) => {
       fastDelivery: faker.datatype.boolean(),
       image: faker.image.image(),
       rating: faker.helpers.arrayElements([1, 2, 3, 4, 5], 1),
-      availableItems: faker.helpers.arrayElements([1, 2, 3, 4, 5, 6, 7], 1),
+      availableItems: faker.helpers.arrayElements([0, 1, 4, 6, 7], 1),
     });
   }
 

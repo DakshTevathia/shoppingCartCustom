@@ -3,15 +3,35 @@ import "../App.css";
 import { CartContext } from "../Store/Context.js";
 import Item from "./Item";
 
-const Content = () => {
+const Content = ({ selected }) => {
   const {
     dispatch,
     state: { products },
   } = useContext(CartContext);
+  let displayProducts = products;
+  //filter products based on the selected State
+  if (selected.ascendingChosen) {
+    displayProducts.sort((a, b) => a.price - b.price);
+  }
+
+  if (selected.descendingChosen) {
+    displayProducts.sort((a, b) => b.price - a.price);
+  }
+
+  if (selected.inStockChosen) {
+    displayProducts = displayProducts.filter((ele) => {
+      return ele.availableItems[0] !== 0;
+    });
+  }
+  if (selected.fastDeliveryChosen) {
+    displayProducts = displayProducts.filter((ele) => {
+      return ele.fastDelivery === true;
+    });
+  }
   return (
     <div className="content">
       <div className="contentGrid">
-        {products.map((product) => (
+        {displayProducts.map((product) => (
           <Item product={product} key={product.id} />
         ))}
       </div>
