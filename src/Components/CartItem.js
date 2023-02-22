@@ -1,4 +1,3 @@
-import { isClickableInput } from "@testing-library/user-event/dist/utils";
 import React, { useContext } from "react";
 import { CartContext } from "../Store/Context";
 import { BsTrash } from "react-icons/bs";
