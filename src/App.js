@@ -13,19 +13,25 @@ function App() {
     inStockChosen: false,
     fastDeliveryChosen: false,
   });
+  const [searchQuery, setSearchQuery] = useState("");
   const cartClicked = () => {
     //change cart modal state to open
     setCartOpen((cartOpen) => {
       return !cartOpen;
     });
   };
+
+  const passToParent = (searchQuery) => {
+    setSearchQuery(searchQuery);
+  };
+
   return (
     <div className="App">
       {cartOpen && <Modal cartClicked={cartClicked} />}
       <div className="mainGrid">
-        <Navbar cartClicked={cartClicked} />
+        <Navbar cartClicked={cartClicked} passToParent={passToParent} />
         <Filter selected={selected} setSelected={setSelected} />
-        <Content selected={selected} />
+        <Content selected={selected} searchQuery={searchQuery} />
       </div>
     </div>
   );

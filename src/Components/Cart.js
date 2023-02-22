@@ -3,12 +3,11 @@ import React, { useContext } from "react";
 import { CartContext } from "../Store/Context";
 
 const Cart = (props) => {
-  const { state, dispatch } = useContext(CartContext);
+  const { state } = useContext(CartContext);
   let totalPrice = 0;
   state.cart.map((ele) => {
     return (totalPrice += ele.price * ele.qty);
   });
-  console.log(totalPrice);
   return (
     <>
       <div style={{ textAlign: "right", marginBottom: "10px" }}>

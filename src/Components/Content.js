@@ -3,9 +3,8 @@ import "../App.css";
 import { CartContext } from "../Store/Context.js";
 import Item from "./Item";
 
-const Content = ({ selected }) => {
+const Content = ({ selected, searchQuery }) => {
   const {
-    dispatch,
     state: { products },
   } = useContext(CartContext);
   let displayProducts = products;
@@ -28,6 +27,13 @@ const Content = ({ selected }) => {
       return ele.fastDelivery === true;
     });
   }
+
+  if (searchQuery) {
+    displayProducts = displayProducts.filter((prod) => {
+      return prod.name.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+  }
+
   return (
     <div className="content">
       <div className="contentGrid">

@@ -75,7 +75,7 @@ const Filter = ({ selected, setSelected }) => {
             checked={selected.inStockChosen}
             onChange={inStockSelected}
           />
-          <label htmlFor="inStock">inStock</label>
+          <label htmlFor="inStock">Available Stock Only</label>
         </div>
 
         <div>
@@ -86,7 +86,7 @@ const Filter = ({ selected, setSelected }) => {
             checked={selected.fastDeliveryChosen}
             onChange={fastDeliverySelected}
           />
-          <label htmlFor="fastDelivery">fastDelivery</label>
+          <label htmlFor="fastDelivery">Fast Delivery</label>
         </div>
         <button onClick={handleCancelClicked}>Clear Filters</button>
       </div>
